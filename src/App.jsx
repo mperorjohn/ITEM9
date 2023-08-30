@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import { Text, Stack } from "@chakra-ui/react";
 import RegisterPage from "./pages/RegisterPage";
 import Login from "./pages/Login";
+import ResetPassword from "./pages/ResetPassword";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<RegisterPage />} />
+        <Route path="resetpassword" element={<ResetPassword />}></Route>
       </Routes>
     </Stack>
   );

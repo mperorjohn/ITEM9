@@ -14,16 +14,11 @@ import {
   Button,
 } from "@chakra-ui/react";
 import React from "react";
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-} from "@chakra-ui/react";
-import { Icon } from "@chakra-ui/react";
+import { FormControl, FormLabel } from "@chakra-ui/react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { MotionConfig } from "framer-motion";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import ResetPassword from "./ResetPassword";
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
@@ -42,11 +37,7 @@ const Login = () => {
   };
   return (
     <Stack justify={"center"} overflow={"hidden"}>
-      <motion.div
-      initial={{opacity:0}}
-      animate={{opacity:4}}
-      
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <Text
           fontSize={"7xl"}
           fontWeight={"bold"}
@@ -54,7 +45,10 @@ const Login = () => {
           color={"white"}
           textAlign={"center"}
         >
-          Order<Text as={"span"} color={'orange.200'}>Now</Text>
+          Order
+          <Text as={"span"} ml={2} color={"orange.200"}>
+            Now
+          </Text>
         </Text>
       </motion.div>
       <motion.div
@@ -135,6 +129,13 @@ const Login = () => {
                 >
                   Sign In
                 </Button>
+
+                <Text color={"white"} textAlign={"center"} mt={2}>
+                  <Link to={"/resetpassword"}>Reset Password?</Link>
+                  <Text as={"span"} _hover={{ color: "whatsapp.200" }}>
+                    <Link to={"/register"}>Sign Up</Link>
+                  </Text>
+                </Text>
               </FormControl>
             </CardBody>
           </Card>

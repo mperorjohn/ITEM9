@@ -34,6 +34,11 @@ const NavBar = () => {
         <Spacer />
         <Box mt={4} mr={20}>
           <UnorderedList display={"flex"} gap={4} flexDirection={"row"}>
+            <Link to={"/"}>
+              <ListItem listStyleType={"none"} p={2} color={"white"}>
+                Home
+              </ListItem>
+            </Link>
             <Link to={"login"}>
               <ListItem listStyleType={"none"} p={2} color={"white"}>
                 Sign In

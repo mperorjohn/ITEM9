@@ -17,6 +17,8 @@ const App = () => {
       width={"100vw"}
       bgSize={"cover"}
       position={"relative"}
+      borderBottom="2px solid transparent"
+     
     >
       <NavBar />
 

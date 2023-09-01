@@ -7,16 +7,10 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
-import {
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
-} from "@chakra-ui/react";
+// import React from "react";
+import { ListItem, UnorderedList } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { PiBowlFood } from "react-icons/pi";
+// import { PiBowlFood } from "react-icons/pi";
 
 const NavBar = () => {
   return (

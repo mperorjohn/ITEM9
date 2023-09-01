@@ -16,12 +16,11 @@ import {
   UnorderedList,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import RegisterPage from "../pages/RegisterPage";
-import Login from "../pages/Login";
+import { PiBowlFood } from "react-icons/pi";
 
 const NavBar = () => {
   return (
-    <Stack>
+    <Stack borderBottom={"blur"}>
       <Flex>
         <Box color={"AppWorkspace"} ml={"20"} mt={4}>
           <Heading size={"2xl"} justifyContent={"center"}>

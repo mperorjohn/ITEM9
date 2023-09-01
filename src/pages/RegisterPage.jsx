@@ -42,7 +42,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <Stack justify={"center"} overflow={"hidden"}>
+    <Stack justify={"center"} overflowX={"hidden"}>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <Text
           fontSize={"7xl"}

@@ -18,7 +18,7 @@ import { FormControl, FormLabel } from "@chakra-ui/react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import ResetPassword from "./ResetPassword";
+// import ResetPassword from "./ResetPassword";
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
@@ -36,7 +36,7 @@ const Login = () => {
     setShow(!show);
   };
   return (
-    <Stack justify={"center"} overflow={"hidden"}>
+    <Stack justify={"center"} overflowX={"hidden"}>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <Text
           fontSize={"7xl"}

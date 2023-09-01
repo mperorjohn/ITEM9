@@ -13,6 +13,7 @@ import {
   CardFooter,
   ButtonGroup,
   Button,
+  Box,
 } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
@@ -115,34 +116,8 @@ const Home = () => {
         "https://images.unsplash.com/photo-1568600891621-50f697b9a1c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
     },
   ];
-
-  // const generateRandomThreeWordDescription = () => {
-  //   const adjectives = [
-  //     "Delicious",
-  //     "Savory",
-  //     "Exquisite",
-  //     "Mouthwatering",
-  //     "Flavorful",
-  //     "Tasty",
-  //   ];
-  //   const nouns = [
-  //     "Bite",
-  //     "Dish",
-  //     "Creation",
-  //     "Experience",
-  //     "Delight",
-  //     "Indulgence",
-  //   ];
-
-  //   const randomAdjective =
-  //     adjectives[Math.floor(Math.random() * adjectives.length)];
-  //   const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
-
-  //   return `${randomAdjective} ${randomNoun}`;
-  // };
-
   return (
-    <Stack color={"white"} p={10}>
+    <Stack color={"white"} p={6} overflowX={"hidden"}>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <SimpleGrid
           gap={8}
@@ -152,7 +127,7 @@ const Home = () => {
           // bottom={0}
           justifyContent={{ base: "center" }}
           alignItems={{ base: "center" }}
-          overflow={'hidden'}
+          overflow={"hidden"}
         >
           {foodItems.map((foodItems, index) => (
             <motion.div
@@ -160,18 +135,27 @@ const Home = () => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 2 }}
               transition={{ type: "tween", delay: 0.2 }}
+              // whileHover={{ bg: 1.1 }}
             >
-              <Card overflow={"hidden"} maxW="sm" key={index}>
+              <Card
+                overflow={"hidden"}
+                key={index}
+                _hover={{
+                  bg: "orange.300",
+                  color: "white !important",
+                  transition: "0.5s",
+                }}
+              >
                 <CardBody>
                   <Image
                     src={foodItems.FoodImage}
                     borderRadius={"lg"}
-                    // height={300}
-                    // width={600}
+                    boxSize="300px"
+                    objectFit="cover"
                   />
                 </CardBody>
-                <Stack mt={6} spacing={3}>
-                  <Heading as={"h2"} fontSize={"2xl"} ml={4}>
+                <Stack mt={2} spacing={3}>
+                  <Heading as={"h2"} fontSize={"2xl"} size={"sm"} ml={4}>
                     {foodItems.FoodName}
                   </Heading>
                   {/* <Text ml={4} mt={2}>

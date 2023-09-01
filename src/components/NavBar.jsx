@@ -14,10 +14,19 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <Stack borderBottom={"blur"}>
+    <Stack
+      borderBottom={"blur"}
+      fontFamily={"'Montserrat', sans-serif"}
+      fontWeight={"600"}
+    >
       <Flex>
         <Box color={"AppWorkspace"} ml={"20"} mt={4}>
-          <Heading size={"2xl"} justifyContent={"center"}>
+          <Heading
+            size={"2xl"}
+            justifyContent={"center"}
+            fontFamily={"'Montserrat', sans-serif"}
+            fontWeight={"600"}
+          >
             ITEM
             <Text as={"span"} color={"orange.300"}>
               9

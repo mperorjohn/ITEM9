@@ -45,7 +45,7 @@ const RegisterPage = () => {
     <Stack justify={"center"} overflowX={"hidden"}>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <Text
-          fontSize={"7xl"}
+          fontSize={{base:"4xl", md:'7xl'}}
           fontWeight={"bold"}
           mt={4}
           color={"white"}
@@ -65,7 +65,7 @@ const RegisterPage = () => {
         <Container mt={"2"}>
           <Card bg={"transparent"} mt={"-10"}>
             <CardHeader>
-              <Text color={"white"} textAlign={"center"} fontSize={"4xl"}>
+              <Text color={"white"} textAlign={"center"} fontSize={{base:"2xl", md:'4xl'}}>
                 Create Account
               </Text>
             </CardHeader>
@@ -85,6 +85,8 @@ const RegisterPage = () => {
                   size={"md"}
                   _hover={{ bg: "whatsapp.300", outline: "none" }}
                   onChange={EmailHandler}
+                  // fontFamily={"'Montserrat', sans-serif"}
+                  // fontWeight={"600"}
                 />
                 <FormLabel color={"white"} fontSize={"xl"} htmlFor="email">
                   Phone
@@ -101,6 +103,8 @@ const RegisterPage = () => {
                     placeholder="phone number"
                     onChange={PhoneHandler}
                     _hover={{ bg: "whatsapp.300", outline: "none" }}
+                    // fontFamily={"'Montserrat', sans-serif"}
+                    // fontWeight={"600"}
                   />
                 </InputGroup>
                 <FormLabel
@@ -120,6 +124,8 @@ const RegisterPage = () => {
                     onChange={PasswordHandler}
                     variant={"filled"}
                     colorScheme="whatsapp.200"
+                    // fontFamily={"'Montserrat', sans-serif"}
+                    // fontWeight={"600"}
                   />
                   <InputRightElement width="4.5rem" color={"white"}>
                     <Button
@@ -139,6 +145,8 @@ const RegisterPage = () => {
                   <Checkbox
                     colorScheme={"whatsapp.200"}
                     color={"white"}
+                    // fontFamily={"'Montserrat', sans-serif"}
+                    // fontWeight={"600"}
                     //   defaultChecked
                   >
                     Remember Me

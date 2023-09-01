@@ -8,7 +8,6 @@ import RegisterPage from "./pages/RegisterPage";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
 
-
 const App = () => {
   return (
     <Stack
@@ -18,7 +17,7 @@ const App = () => {
       bgSize={"cover"}
       position={"relative"}
       borderBottom="2px solid transparent"
-     
+      // fontFamily={"'Montserrat', sans-serif"}
     >
       <NavBar />
 

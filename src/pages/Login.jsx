@@ -78,6 +78,8 @@ const Login = () => {
                   size={"md"}
                   _hover={{ bg: "whatsapp.300", outline: "none" }}
                   onChange={EmailHandler}
+                  // fontFamily={"'Montserrat', sans-serif"}
+                  // fontWeight={"600"}
                 />
                 <FormLabel
                   color={"white"}
@@ -95,6 +97,8 @@ const Login = () => {
                     onChange={PasswordHandler}
                     variant={"filled"}
                     colorScheme="whatsapp.200"
+                    // fontFamily={"'Montserrat', sans-serif"}
+                    // fontWeight={"600"}
                   />
                   <InputRightElement width="4.5rem" color={"white"}>
                     <Button
@@ -114,6 +118,8 @@ const Login = () => {
                   <Checkbox
                     colorScheme={"whatsapp.200"}
                     color={"white"}
+                    // fontFamily={"'Montserrat', sans-serif"}
+                    // fontWeight={"600"}
                     //   defaultChecked
                   >
                     Remember Me

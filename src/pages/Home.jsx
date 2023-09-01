@@ -117,7 +117,13 @@ const Home = () => {
     },
   ];
   return (
-    <Stack color={"white"} p={6} overflowX={"hidden"}>
+    <Stack
+      color={"white"}
+      p={6}
+      overflowX={"hidden"}
+      fontFamily={"'Montserrat', sans-serif"}
+      fontWeight={"600"}
+    >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <SimpleGrid
           gap={8}

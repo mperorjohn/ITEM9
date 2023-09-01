@@ -6,19 +6,30 @@ import {
   Heading,
   Flex,
   Checkbox,
-  Input,
+  // Input,
   Stack,
   Text,
   InputGroup,
   InputRightElement,
   Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  // FormControl,
+  // FormLabel,
+  Input,
+  ModalFooter,
 } from "@chakra-ui/react";
 import React from "react";
 import { FormControl, FormLabel } from "@chakra-ui/react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-// import ResetPassword from "./ResetPassword";
+import ResetModal from "../components/ResetModal";
+import { useDisclosure } from "@chakra-ui/react";
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
@@ -35,8 +46,73 @@ const Login = () => {
   const handleClick = () => {
     setShow(!show);
   };
+
+  //
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const initialRef = React.useRef(null);
+  const finalRef = React.useRef(null);
+
   return (
     <Stack justify={"center"} overflowX={"hidden"}>
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+        isCentered="true"
+      >
+        <ModalOverlay />
+        <ModalContent bg={"whatsapp.200"}>
+          <ModalHeader>
+            <Heading color={"white"}>Reset Password</Heading>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel color={"white"}>Email</FormLabel>
+              <Input
+                ref={initialRef}
+                type="email"
+                placeholder="Enter your email"
+              />
+            </FormControl>
+
+            <FormControl mt={4}>
+              <FormLabel>Last name</FormLabel>
+              <InputGroup size="md">
+                <Input
+                  pr="4.5rem"
+                  type={show ? "text" : "password"}
+                  placeholder="Enter password"
+                  onChange={PasswordHandler}
+                  variant={"filled"}
+                  colorScheme="whatsapp.200"
+                />
+                <InputRightElement width="4.5rem" color={"white"}>
+                  <Button
+                    bg={"whatsapp.200"}
+                    _hover={{ bg: "whatsapp.300", outline: "none" }}
+                    color={"white"}
+                    h="2rem"
+                    w={"4rem"}
+                    size="sm"
+                  >
+                    {show ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button bg={"white"} color={"whatsapp.200"} mr={3}>
+              Reset
+            </Button>
+            <Button bg={'white'} color={'whatsapp.200'} onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <Text
           fontSize={"7xl"}
@@ -137,7 +213,19 @@ const Login = () => {
                 </Button>
 
                 <Text color={"white"} textAlign={"center"} mt={2}>
-                  <Link to={"/resetpassword"}>Reset Password?</Link>
+                  <Button
+                    bg={"transparent"}
+                    color={"white"}
+                    onClick={onOpen}
+                    _hover={{
+                      bg: "transparent",
+                      outline: "none",
+                      border: "none",
+                    }}
+                  >
+                    Reset Password
+                  </Button>
+                  {/* </Link> */}
                   <Text as={"span"} _hover={{ color: "whatsapp.200" }}>
                     <Link to={"/register"}>Sign Up</Link>
                   </Text>

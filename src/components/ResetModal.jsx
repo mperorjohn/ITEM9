@@ -20,11 +20,7 @@ const ResetModal = () => {
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
-  return (
-    <>
-      
-    </>
-  );
+  return <></>;
 };
 
 export default ResetModal;

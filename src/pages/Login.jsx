@@ -6,7 +6,6 @@ import {
   Heading,
   Flex,
   Checkbox,
-  // Input,
   Stack,
   Text,
   InputGroup,
@@ -18,8 +17,7 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
-  // FormControl,
-  // FormLabel,
+  Box,
   Input,
   ModalFooter,
 } from "@chakra-ui/react";
@@ -28,12 +26,17 @@ import { FormControl, FormLabel } from "@chakra-ui/react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import ResetModal from "../components/ResetModal";
-import { useDisclosure } from "@chakra-ui/react";
+import ResetPassword from "./ResetPassword";
+import { useState } from "react";
+// import { useDisclosure } from "@chakra-ui/react";
 
 const Login = () => {
+  // state and function to disable submit button
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  // State for modal visibility
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const EmailHandler = (event) => {
     setEmail(event.target.value);
@@ -42,77 +45,20 @@ const Login = () => {
   const PasswordHandler = (event) => {
     setPassword(event.target.value);
   };
+
+  // state and function to mask password
   const [show, setShow] = React.useState(false);
+
   const handleClick = () => {
     setShow(!show);
   };
 
-  //
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const initialRef = React.useRef(null);
-  const finalRef = React.useRef(null);
-
+  const handleClickModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
     <Stack justify={"center"} overflowX={"hidden"}>
-      <Modal
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
-        isCentered="true"
-      >
-        <ModalOverlay />
-        <ModalContent bg={"whatsapp.200"}>
-          <ModalHeader>
-            <Heading color={"white"}>Reset Password</Heading>
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel color={"white"}>Email</FormLabel>
-              <Input
-                ref={initialRef}
-                type="email"
-                placeholder="Enter your email"
-              />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <InputGroup size="md">
-                <Input
-                  pr="4.5rem"
-                  type={show ? "text" : "password"}
-                  placeholder="Enter password"
-                  onChange={PasswordHandler}
-                  variant={"filled"}
-                  colorScheme="whatsapp.200"
-                />
-                <InputRightElement width="4.5rem" color={"white"}>
-                  <Button
-                    bg={"whatsapp.200"}
-                    _hover={{ bg: "whatsapp.300", outline: "none" }}
-                    color={"white"}
-                    h="2rem"
-                    w={"4rem"}
-                    size="sm"
-                  >
-                    {show ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button bg={"white"} color={"whatsapp.200"} mr={3}>
-              Reset
-            </Button>
-            <Button bg={'white'} color={'whatsapp.200'} onClick={onClose}>Cancel</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      {isModalOpen ? ResetPassword : null}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <Text
           fontSize={"7xl"}
@@ -147,7 +93,7 @@ const Login = () => {
                 <Input
                   //   variant={"filled"}
                   outline={"none"}
-                  _focus={{ color: "none" }}
+                  // _focus={{ color: "none" }}
                   bg={"whatsapp.200"}
                   color={"white"}
                   type="email"
@@ -184,7 +130,7 @@ const Login = () => {
                       h="2rem"
                       w={"4rem"}
                       size="sm"
-                      onClick={handleClick}
+                      onClick={handleClickModal}
                     >
                       {show ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                     </Button>
@@ -216,12 +162,13 @@ const Login = () => {
                   <Button
                     bg={"transparent"}
                     color={"white"}
-                    onClick={onOpen}
+                    onClick={handleClick}
                     _hover={{
                       bg: "transparent",
                       outline: "none",
                       border: "none",
                     }}
+                    _focus={{ outline: "none", border: "none" }}
                   >
                     Reset Password
                   </Button>

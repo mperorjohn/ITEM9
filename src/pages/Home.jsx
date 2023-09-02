@@ -1,9 +1,6 @@
 import {
   Card,
   CardBody,
-  CardHeader,
-  Container,
-  Flex,
   Text,
   Heading,
   SimpleGrid,
@@ -13,7 +10,6 @@ import {
   CardFooter,
   ButtonGroup,
   Button,
-  Box,
 } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
@@ -128,9 +124,7 @@ const Home = () => {
         <SimpleGrid
           gap={8}
           templateColumns={"repeat(auto-fill, minmax(250px, 4fr))"}
-          // bg={'black'}
           position={"relative"}
-          // bottom={0}
           justifyContent={{ base: "center" }}
           alignItems={{ base: "center" }}
           overflow={"hidden"}
@@ -141,7 +135,6 @@ const Home = () => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 2 }}
               transition={{ type: "tween", delay: 0.2 }}
-              // whileHover={{ bg: 1.1 }}
             >
               <Card
                 overflow={"hidden"}
@@ -164,9 +157,7 @@ const Home = () => {
                   <Heading as={"h2"} fontSize={"2xl"} size={"sm"} ml={4}>
                     {foodItems.FoodName}
                   </Heading>
-                  {/* <Text ml={4} mt={2}>
-                {generateRandomThreeWordDescription()}
-              </Text> */}
+
                   <Text
                     ml={4}
                     fontWeight={"bold"}

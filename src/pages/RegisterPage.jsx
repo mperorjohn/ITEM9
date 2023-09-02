@@ -45,7 +45,7 @@ const RegisterPage = () => {
     <Stack justify={"center"} overflowX={"hidden"}>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <Text
-          fontSize={{base:"4xl", md:'7xl'}}
+          fontSize={{ base: "4xl", md: "7xl" }}
           fontWeight={"bold"}
           mt={4}
           color={"white"}
@@ -65,7 +65,11 @@ const RegisterPage = () => {
         <Container mt={"2"}>
           <Card bg={"transparent"} mt={"-10"}>
             <CardHeader>
-              <Text color={"white"} textAlign={"center"} fontSize={{base:"2xl", md:'4xl'}}>
+              <Text
+                color={"white"}
+                textAlign={"center"}
+                fontSize={{ base: "2xl", md: "4xl" }}
+              >
                 Create Account
               </Text>
             </CardHeader>
@@ -164,12 +168,8 @@ const RegisterPage = () => {
                 >
                   Sign Up
                 </Button>
-
-                <Text color={"white"} textAlign={"center"} mt={2}>
-                  <Link to={"/resetpassword"}>Reset Password?</Link>
-                  <Text as={"span"} _hover={{ color: "whatsapp.200" }}>
-                    <Link to={"/login"}>Sign In</Link>
-                  </Text>
+                <Text color={"white"} textAlign={"center"} _hover={{color:'whatsapp.200'}} mt={2}>
+                  <Link to={"/login"}>Sign In</Link>
                 </Text>
               </FormControl>
             </CardBody>

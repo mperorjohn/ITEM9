@@ -7,6 +7,7 @@ import { Text, Stack } from "@chakra-ui/react";
 import RegisterPage from "./pages/RegisterPage";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
+import CheckOut from "./pages/CheckOut";
 
 const App = () => {
   return (
@@ -25,7 +26,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<RegisterPage />} />
-        <Route path="resetpassword" element={<ResetPassword />}></Route>
+        <Route path="resetpassword" element={<ResetPassword />}/>
+        <Route path="checkout" element={<CheckOut/>}/>
       </Routes>
     </Stack>
   );

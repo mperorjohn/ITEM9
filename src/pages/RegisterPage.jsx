@@ -63,7 +63,7 @@ const RegisterPage = () => {
         transition={{ type: "tween", delay: 0.2 }}
       >
         <Container mt={"2"}>
-          <Card bg={"transparent"} mt={"-10"}>
+          <Card bg={"none"} mt={"-10"} shadow={'none'}>
             <CardHeader>
               <Text
                 color={"white"}
@@ -128,8 +128,6 @@ const RegisterPage = () => {
                     onChange={PasswordHandler}
                     variant={"filled"}
                     colorScheme="whatsapp.200"
-                    // fontFamily={"'Montserrat', sans-serif"}
-                    // fontWeight={"600"}
                   />
                   <InputRightElement width="4.5rem" color={"white"}>
                     <Button
@@ -146,13 +144,7 @@ const RegisterPage = () => {
                   </InputRightElement>
                 </InputGroup>
                 <Flex mt={"4"}>
-                  <Checkbox
-                    colorScheme={"whatsapp.200"}
-                    color={"white"}
-                    // fontFamily={"'Montserrat', sans-serif"}
-                    // fontWeight={"600"}
-                    //   defaultChecked
-                  >
+                  <Checkbox colorScheme={"whatsapp.200"} color={"white"}>
                     Remember Me
                   </Checkbox>
                 </Flex>
@@ -168,7 +160,12 @@ const RegisterPage = () => {
                 >
                   Sign Up
                 </Button>
-                <Text color={"white"} textAlign={"center"} _hover={{color:'whatsapp.200'}} mt={2}>
+                <Text
+                  color={"white"}
+                  textAlign={"center"}
+                  _hover={{ color: "whatsapp.200" }}
+                  mt={2}
+                >
                   <Link to={"/login"}>Sign In</Link>
                 </Text>
               </FormControl>

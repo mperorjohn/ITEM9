@@ -79,7 +79,7 @@ const Login = () => {
         transition={{ type: "tween", delay: 0.2 }}
       >
         <Container mt={"2"}>
-          <Card bg={"transparent"}>
+          <Card bg={"none"} shadow={"none"}>
             <CardHeader>
               <Text color={"white"} textAlign={"center"} fontSize={"4xl"}>
                 Sign In ITEM9
@@ -119,8 +119,6 @@ const Login = () => {
                     onChange={PasswordHandler}
                     variant={"filled"}
                     colorScheme="whatsapp.200"
-                    // fontFamily={"'Montserrat', sans-serif"}
-                    // fontWeight={"600"}
                   />
                   <InputRightElement width="4.5rem" color={"white"}>
                     <Button
@@ -130,20 +128,14 @@ const Login = () => {
                       h="2rem"
                       w={"4rem"}
                       size="sm"
-                      onClick={handleClickModal}
+                      onClick={handleClick}
                     >
                       {show ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
                 <Flex mt={"4"}>
-                  <Checkbox
-                    colorScheme={"whatsapp.200"}
-                    color={"white"}
-                    // fontFamily={"'Montserrat', sans-serif"}
-                    // fontWeight={"600"}
-                    //   defaultChecked
-                  >
+                  <Checkbox colorScheme={"whatsapp.200"} color={"white"}>
                     Remember Me
                   </Checkbox>
                 </Flex>
@@ -162,7 +154,7 @@ const Login = () => {
                   <Button
                     bg={"transparent"}
                     color={"white"}
-                    onClick={handleClick}
+                    onClick={handleClickModal}
                     _hover={{
                       bg: "transparent",
                       outline: "none",

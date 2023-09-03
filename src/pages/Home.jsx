@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 const Home = () => {
   const foodItems = [
     {
@@ -170,16 +171,18 @@ const Home = () => {
                 <Divider color={"whatsapp.200"} size={4} />
                 <CardFooter>
                   <ButtonGroup spacing="2">
-                    <Button
-                      variant="solid"
-                      color={"white"}
-                      bg={"whatsapp.200"}
-                      _hover={{ bg: "whatsapp" }}
-                      outline={"none"}
-                      outlineColor={"none"}
-                    >
-                      Buy now
-                    </Button>
+                    <Link to={"checkout"}>
+                      <Button
+                        variant="solid"
+                        color={"white"}
+                        bg={"whatsapp.200"}
+                        _hover={{ bg: "whatsapp" }}
+                        outline={"none"}
+                        outlineColor={"none"}
+                      >
+                        Buy now
+                      </Button>
+                    </Link>
                     <Button variant="ghost" color={"whatsapp.200"}>
                       Add to cart
                     </Button>

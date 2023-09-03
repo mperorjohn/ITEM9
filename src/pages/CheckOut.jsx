@@ -1,15 +1,15 @@
-import { Button, Flex, Heading, Stack } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 
 const CheckOut = () => {
-  const { cart, setCart } = useState();
+  const [defaultCart, setDefaultCart] = useState(1);
 
   const CartHandlerPlus = () => {
-    setCart() + 1;
+    setDefaultCart(defaultCart + 1) + 1;
   };
 
   const CartHandlerMinus = () => {
-    setCart(cart) - 1;
+    setDefaultCart(defaultCart - 1);
   };
 
   return (
@@ -18,8 +18,19 @@ const CheckOut = () => {
         <Flex flex={1} bg={"orange.200"}>
           <Heading>Proceed Payment</Heading>
 
-          <Button bg={"orange.200"} onClick={CartHandlerPlus}></Button>
-          <Button bg={"orange.200"} onClick={CartHandlerMinus}></Button>
+          <p>Display cart{defaultCart}</p>
+          <Box>
+            <Button bg={"orange.200"} onClick={CartHandlerPlus}>
+              Add
+            </Button>
+            <Button
+              bg={"orange.200"}
+              onClick={CartHandlerMinus}
+              isDisabled={defaultCart < -1}
+            >
+              Remove
+            </Button>
+          </Box>
         </Flex>
         <Flex flex={1} bg={"whatsapp.200"}>
           <Heading>Checkout</Heading>

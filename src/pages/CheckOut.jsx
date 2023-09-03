@@ -1,4 +1,14 @@
-import { Box, Button, Flex, Heading, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Card,
+  CardHeader,
+  Container,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { useState } from "react";
 
 const CheckOut = () => {
@@ -15,25 +25,27 @@ const CheckOut = () => {
   return (
     <Stack>
       <Flex flexDirection={"row"}>
-        <Flex flex={1} bg={"orange.200"}>
-          <Heading>Proceed Payment</Heading>
-
-          <p>Display cart{defaultCart}</p>
-          <Box>
-            <Button bg={"orange.200"} onClick={CartHandlerPlus}>
-              Add
-            </Button>
-            <Button
-              bg={"orange.200"}
-              onClick={CartHandlerMinus}
-              isDisabled={defaultCart < -1}
+        <Flex flex={1} bg={"none"} justify={"center"}>
+          <Container>
+            <Text
+              size={""}
+              textAlign={"center"}
+              fontSize={"4xl"}
+              color={"white"}
             >
-              Remove
-            </Button>
-          </Box>
+              Complete Order Now
+            </Text>
+            <Card borderRadius={"none"}>
+              <CardHeader>
+                <Text _hover={{color:'orange.200', transition:'0.5s'}} color={"whatsapp.200"} fontWeight={"medium"}>
+                  Information &gt; Payment &gt; Shipping
+                </Text>
+              </CardHeader>
+            </Card>
+          </Container>
         </Flex>
-        <Flex flex={1} bg={"whatsapp.200"}>
-          <Heading>Checkout</Heading>
+        <Flex flex={1} bg={"whatsapp.200"} justify={"center"}>
+          <Text>Proceed Payment</Text>
         </Flex>
       </Flex>
     </Stack>

@@ -17,31 +17,89 @@ import {
 import { useState } from "react";
 import { Form, Link } from "react-router-dom";
 import { useSubmit } from "react-router-dom";
+import { useEffect } from "react";
 
 const CheckOut = () => {
   const [defaultCart, setDefaultCart] = useState(1);
+  const [defaultPrice, setDefaulPrice] = useState(12.99);
 
   const CartHandlerPlus = () => {
-    setDefaultCart(defaultCart + 1);
+    setDefaultCart(defaultCart + 1) + 1;
   };
 
   const CartHandlerMinus = () => {
     setDefaultCart(defaultCart - 1);
   };
 
+  // const defaultPriceHandler = () => {
+
+  // };
   const ExpressCheckout = [
     "src/assets/Mastercard-logo.svg.png",
     "src/assets/Verve_Image.png",
     "src/assets/Visa-investment-in-Africa.png",
   ];
 
-  // const HandleSubmit = useSubmit(async (e) => {
-  //   e.preventDefault();
-  // });
-
+  useEffect(() => {
+    setDefaulPrice(defaultCart * 12.99);
+  }, [defaultCart]);
   return (
     <Stack overflowX={"hidden"}>
       <Flex flexDirection={{ base: "column", md: "row" }}>
+        <Flex flex={1} bg={"none"} justify={"center"}>
+          <Stack ml={8} width={"100%"}>
+            <Text textAlign={"center"} fontSize={"4xl"} color={"white"}>
+              Cart Items
+            </Text>
+            <Card>
+              <CardHeader>
+                <Text
+                  _hover={{ color: "orange.200", transition: "0.5s" }}
+                  color={"whatsapp.200"}
+                  fontWeight={"medium"}
+                >
+                  Modify Cart
+                </Text>
+                <Text
+                  textAlign={"center"}
+                  fontSize={"4xl"}
+                  bg={"whatsapp.200"}
+                  color={"white"}
+                >
+                  Item
+                </Text>
+                <Text mb={6} fontSize={"3xl"} color={"whatsapp.200"}>
+                  <Text as={"span"}>{defaultCart} </Text>
+                  Spaghetti Carbonara
+                  <Text
+                    as={"span"}
+                    color={"orange.200"}
+                    ml={"170px"}
+                    fontWeight={"bold"}
+                  >
+                    ${defaultPrice}
+                  </Text>
+                </Text>
+                <hr color="green" />
+                <Flex gap={10}>
+                  <Button mt={6} onClick={CartHandlerPlus}>
+                    Add
+                  </Button>{" "}
+                  <Button
+                    mt={6}
+                    onClick={CartHandlerMinus}
+                    isDisabled={defaultCart === 1}
+                  >
+                    Remove
+                  </Button>
+                </Flex>
+                <Text textAlign={"center"} fontSize={"3xl"}>
+                  Delivery Details
+                </Text>
+              </CardHeader>
+            </Card>
+          </Stack>
+        </Flex>
         <Flex flex={1} bg={"none"} justify={"center"}>
           <Container>
             <Text textAlign={"center"} fontSize={"4xl"} color={"white"}>
@@ -94,7 +152,12 @@ const CheckOut = () => {
                     name="email"
                     type="email"
                   />
-                  <Checkbox colorScheme="whatsapp" mt={2} size={"sm"}>
+                  <Checkbox
+                    defaultChecked
+                    colorScheme="whatsapp"
+                    mt={2}
+                    size={"sm"}
+                  >
                     Email me with the news and offer
                   </Checkbox>
 
@@ -152,9 +215,6 @@ const CheckOut = () => {
               </CardBody>
             </Card>
           </Container>
-        </Flex>
-        <Flex flex={1} bg={"whatsapp.200"} justify={"center"}>
-          <Text>Proceed Payment</Text>
         </Flex>
       </Flex>
     </Stack>

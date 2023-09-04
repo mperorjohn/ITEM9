@@ -63,7 +63,7 @@ const RegisterPage = () => {
         transition={{ type: "tween", delay: 0.2 }}
       >
         <Container mt={"2"}>
-          <Card bg={"none"} mt={"-10"} shadow={'none'}>
+          <Card bg={"none"} mt={"-10"} shadow={"none"}>
             <CardHeader>
               <Text
                 color={"white"}

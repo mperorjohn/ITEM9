@@ -11,18 +11,42 @@ import {
   Input,
   Stack,
   Text,
-  CheckboxGroup,
   Checkbox,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Form, Link } from "react-router-dom";
-import { useSubmit } from "react-router-dom";
+// import { useSubmit } from "react-router-dom";
 import { useEffect } from "react";
 
 const CheckOut = () => {
   const [defaultCart, setDefaultCart] = useState(1);
-  const [defaultPrice, setDefaulPrice] = useState(12.99);
+  const [defaultPrice, setDefaultPrice] = useState(12.99);
 
+  // State definitoin form
+  const [email, setEmail] = useState("");
+  const [firstname, setFirstname] = useState();
+  const [lastname, setLastname] = useState("");
+  const [phone, setPhone] = useState();
+  const [address, setAddress] = useState("");
+  const [fullname, setFullname] = useState("");
+
+  const EmailHandler = (e) => {
+    setEmail(e.target.value);
+  };
+  const FirstnameHandler = (e) => {
+    setFirstname(e.target.value);
+  };
+  const LastnameHandler = (e) => {
+    setLastname(e.target.value);
+  };
+  const PhoneHandler = (e) => {
+    setPhone(e.target.value);
+  };
+  const AddressHandler = (e) => {
+    setAddress(e.target.value);
+  };
+
+  // Functions to handle buttons
   const CartHandlerPlus = () => {
     setDefaultCart(defaultCart + 1) + 1;
   };
@@ -41,7 +65,8 @@ const CheckOut = () => {
   ];
 
   useEffect(() => {
-    setDefaulPrice(defaultCart * 12.99);
+    const calculatedPrice = Math.ceil(defaultCart * 12.99);
+    setDefaultPrice(calculatedPrice);
   }, [defaultCart]);
   return (
     <Stack overflowX={"hidden"}>
@@ -82,19 +107,48 @@ const CheckOut = () => {
                 </Text>
                 <hr color="green" />
                 <Flex gap={10}>
-                  <Button mt={6} onClick={CartHandlerPlus}>
+                  <Button
+                    mt={6}
+                    bg={"whatsapp.200"}
+                    color={"white"}
+                    _focus={{ outline: "none", border: "none" }}
+                    onClick={CartHandlerPlus}
+                  >
                     Add
                   </Button>{" "}
                   <Button
                     mt={6}
                     onClick={CartHandlerMinus}
                     isDisabled={defaultCart === 1}
+                    _focus={{ outline: "none", border: "none" }}
                   >
                     Remove
                   </Button>
                 </Flex>
                 <Text textAlign={"center"} fontSize={"3xl"}>
                   Delivery Details
+                </Text>
+                <Text>
+                  Name:
+                  <Text fontWeight={"bold"} color={"whatsapp.400"} as={"span"}>
+                    {fullname}
+                  </Text>
+                  <br />
+                  Address:
+                  <Text fontWeight={"bold"} color={"whatsapp.400"} as={"span"}>
+                    {address}
+                  </Text>
+                  <br />
+                  Email:
+                  <Text fontWeight={"bold"} color={"whatsapp.400"} as={"span"}>
+                    {email}
+                  </Text>
+                  <br />
+                  Phone:
+                  <Text fontWeight={"bold"} color={"whatsapp.400"} as={"span"}>
+                    {phone}
+                  </Text>
+                  <br />
                 </Text>
               </CardHeader>
             </Card>
@@ -151,6 +205,7 @@ const CheckOut = () => {
                     placeholder="Enter your email"
                     name="email"
                     type="email"
+                    onChange={EmailHandler}
                   />
                   <Checkbox
                     defaultChecked
@@ -171,12 +226,14 @@ const CheckOut = () => {
                       variant={"filled"}
                       placeholder="First name"
                       width={"50%"}
+                      onChange={FirstnameHandler}
                     />
                     <Input
                       type="text"
                       variant={"filled"}
                       placeholder="Last name"
                       width={"50%"}
+                      onChange={LastnameHandler}
                     />
                   </Flex>
                   <Input
@@ -185,6 +242,7 @@ const CheckOut = () => {
                     placeholder="Address"
                     mt={4}
                     isRequired
+                    onChange={AddressHandler}
                   />
                   <Flex mt={4} gap={"4"} flexDirection={"row"}>
                     <Input
@@ -192,6 +250,7 @@ const CheckOut = () => {
                       variant={"filled"}
                       placeholder="Phone number"
                       width={"50%"}
+                      onChange={PhoneHandler}
                     />
                     <Input
                       type="text"

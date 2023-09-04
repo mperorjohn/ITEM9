@@ -2,21 +2,27 @@ import {
   Box,
   Button,
   Card,
+  CardBody,
   CardHeader,
   Container,
   Flex,
-  Heading,
+  FormControl,
   Image,
+  Input,
   Stack,
   Text,
+  CheckboxGroup,
+  Checkbox,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { Form, Link } from "react-router-dom";
+import { useSubmit } from "react-router-dom";
 
 const CheckOut = () => {
   const [defaultCart, setDefaultCart] = useState(1);
 
   const CartHandlerPlus = () => {
-    setDefaultCart(defaultCart + 1) + 1;
+    setDefaultCart(defaultCart + 1);
   };
 
   const CartHandlerMinus = () => {
@@ -29,15 +35,19 @@ const CheckOut = () => {
     "src/assets/Visa-investment-in-Africa.png",
   ];
 
+  // const HandleSubmit = useSubmit(async (e) => {
+  //   e.preventDefault();
+  // });
+
   return (
-    <Stack>
+    <Stack overflowX={"hidden"}>
       <Flex flexDirection={{ base: "column", md: "row" }}>
-        <Flex flex={1} bg={"none"} justify={"center"} borderRadius={"full"}>
+        <Flex flex={1} bg={"none"} justify={"center"}>
           <Container>
             <Text textAlign={"center"} fontSize={"4xl"} color={"white"}>
               Complete Order Now
             </Text>
-            <Card borderRadius={"none"}>
+            <Card borderRadius={"md"}>
               <CardHeader>
                 <Text
                   _hover={{ color: "orange.200", transition: "0.5s" }}
@@ -47,7 +57,15 @@ const CheckOut = () => {
                   Information &gt; Payment &gt; Delivery
                 </Text>
 
-                <Flex gap={6} justify={"center"} border={"2px"}>
+                <Text
+                  fontStyle={"italic"}
+                  textAlign={"center"}
+                  mt={4}
+                  fontWeight={"medium"}
+                >
+                  Express checkout
+                </Text>
+                <Flex mt={4} gap={6} justify={"center"} border={"2px"}>
                   {ExpressCheckout.map((image, index) => (
                     <Image
                       boxSize={"80px"}
@@ -57,10 +75,81 @@ const CheckOut = () => {
                     />
                   ))}
                 </Flex>
-                <Text fontStyle={"italic"} textAlign={"center"}>
-                  Express checkout
+                <Text textAlign={"center"} mt={4} fontWeight={"bold"}>
+                  OR CONTINUE BELOW TO PAY WITH OTHER CARD
                 </Text>
               </CardHeader>
+              <CardBody>
+                <Text fontSize={"xl"} fontWeight={"medium"}>
+                  Contact Information
+                  <Text ml={"70px"} fontSize={"small"} as={"span"}>
+                    Already have an account?<Link to={"/login"}>Login</Link>
+                  </Text>
+                </Text>
+                <FormControl>
+                  <Input
+                    variant={"filled"}
+                    bg={"whatsapp.200"}
+                    placeholder="Enter your email"
+                    name="email"
+                    type="email"
+                  />
+                  <Checkbox colorScheme="whatsapp" mt={2} size={"sm"}>
+                    Email me with the news and offer
+                  </Checkbox>
+
+                  <Text mt={6} fontSize={"xl"} fontWeight={"medium"}>
+                    Shipping Address
+                  </Text>
+
+                  <Flex gap={"4"} flexDirection={"row"}>
+                    <Input
+                      type="text"
+                      variant={"filled"}
+                      placeholder="First name"
+                      width={"50%"}
+                    />
+                    <Input
+                      type="text"
+                      variant={"filled"}
+                      placeholder="Last name"
+                      width={"50%"}
+                    />
+                  </Flex>
+                  <Input
+                    type="text"
+                    variant={"filled"}
+                    placeholder="Address"
+                    mt={4}
+                    isRequired
+                  />
+                  <Flex mt={4} gap={"4"} flexDirection={"row"}>
+                    <Input
+                      type="tel"
+                      variant={"filled"}
+                      placeholder="Phone number"
+                      width={"50%"}
+                    />
+                    <Input
+                      type="text"
+                      variant={"filled"}
+                      placeholder="City"
+                      width={"50%"}
+                    />
+                  </Flex>
+                  <Button
+                    width={"100%"}
+                    mt={10}
+                    _focus={{ outline: "none", border: "none" }}
+                    _hover={{ bg: "whatsapp" }}
+                    bg={"whatsapp.200"}
+                    type="submit"
+                    color={"white"}
+                  >
+                    Proceed Payment
+                  </Button>
+                </FormControl>
+              </CardBody>
             </Card>
           </Container>
         </Flex>

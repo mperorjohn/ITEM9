@@ -14,8 +14,8 @@ import {
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-const Home = () => {
 
+const Home = () => {
   const foodItems = [
     {
       FoodName: "Spaghetti Carbonara",
@@ -136,7 +136,7 @@ const Home = () => {
               key={index}
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 2 }}
-              transition={{ type: "tween", delay: 0.2 }}
+              transition={{ type: "tween", delay: 0.2 * index }}
             >
               <Card
                 overflow={"hidden"}

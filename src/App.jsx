@@ -19,6 +19,7 @@ const App = () => {
         bgSize={"cover"}
         position={"relative"}
         borderBottom="2px solid transparent"
+        // fontFamily={"'Montserrat', sans-serif"}
       >
         <NavBar />
 

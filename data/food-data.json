@@ -1,0 +1,82 @@
+[
+  {
+    "FoodName": "Spaghetti Carbonara",
+    "FoodPrice": 12.99,
+    "FoodImage": "https://plus.unsplash.com/premium_photo-1673809798970-30c14cfd0ab6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Chicken Teriyaki",
+    "FoodPrice": 8.49,
+    "FoodImage": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Caesar Salad",
+    "FoodPrice": 10.95,
+    "FoodImage": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Margherita Pizza",
+    "FoodPrice": 6.75,
+    "FoodImage": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Beef Burger",
+    "FoodPrice": 9.99,
+    "FoodImage": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Sushi Roll Combo",
+    "FoodPrice": 15.25,
+    "FoodImage": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Vegan Pad Thai",
+    "FoodPrice": 11.5,
+    "FoodImage": "https://media.istockphoto.com/id/1456403368/photo/fresh-healthy-organic-vegetables-background.webp?b=1&s=170667a&w=0&k=20&c=5bBCDNq3XnwxX448YI9bNL9JtzbNKNhJYyyeF7l3joY="
+  },
+  {
+    "FoodName": "Chocolate Lava Cake",
+    "FoodPrice": 5.95,
+    "FoodImage": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Greek Gyro",
+    "FoodPrice": 7.8,
+    "FoodImage": "https://plus.unsplash.com/premium_photo-1673580742890-4af144293960?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Mango Tango Smoothie",
+    "FoodPrice": 4.25,
+    "FoodImage": "https://images.unsplash.com/photo-1529042410759-befb1204b468?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Steak and Potatoes",
+    "FoodPrice": 18.75,
+    "FoodImage": "https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Caprese Salad",
+    "FoodPrice": 7.25,
+    "FoodImage": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Shrimp Scampi Pasta",
+    "FoodPrice": 14.5,
+    "FoodImage": "https://plus.unsplash.com/premium_photo-1676234917179-a7b1ca98c984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Vegetable Stir-Fry",
+    "FoodPrice": 29.95,
+    "FoodImage": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": "Vegetable Stir-Fry",
+    "FoodPrice": 19.95,
+    "FoodImage": "https://images.unsplash.com/photo-1586511925558-a4c6376fe65f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "FoodName": " Stir-Fry",
+    "FoodPrice": 9.95,
+    "FoodImage": "https://images.unsplash.com/photo-1568600891621-50f697b9a1c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+  }
+]

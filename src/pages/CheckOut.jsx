@@ -18,18 +18,26 @@ import { Form, Link } from "react-router-dom";
 // import { useSubmit } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import React from "react";
 
 const CheckOut = () => {
   const [defaultCart, setDefaultCart] = useState(1);
   const [defaultPrice, setDefaultPrice] = useState(12.99);
 
   // State definitoin form
-  const [email, setEmail] = useState("");
-  const [firstname, setFirstname] = useState();
-  const [lastname, setLastname] = useState("");
-  const [phone, setPhone] = useState();
-  const [address, setAddress] = useState("");
-  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = React.useState("");
+  const [firstname, setFirstname] = React.useState();
+  const [lastname, setLastname] = React.useState("");
+  const [phone, setPhone] = React.useState();
+  const [address, setAddress] = React.useState("");
+  const [fullname, setFullname] = React.useState("");
+  const [cardNumber, setCardNumber] = React.useState();
+  const [valideYear, setValideYear] = React.useState();
+  const [cvv, setCvv] = React.useState();
+  const [deliveryPrice, setDeliveryPrice] = React.useState(0.3);
+  const [totalPrice, setTotalPrice] = React.useState();
+
+  // Getting forms value
 
   const EmailHandler = (e) => {
     setEmail(e.target.value);
@@ -47,6 +55,17 @@ const CheckOut = () => {
     setAddress(e.target.value);
   };
 
+  const CardNumberhandler = (e) => {
+    setCardNumber(e.target.value);
+  };
+
+  const ValideYearHandler = (e) => {
+    setValideYear(e.target.value);
+  };
+  const CVVHandler = (e) => {
+    setCvv(e.target.value);
+  };
+
   // Functions to handle buttons
   const CartHandlerPlus = () => {
     setDefaultCart(defaultCart + 1) + 1;
@@ -56,9 +75,6 @@ const CheckOut = () => {
     setDefaultCart(defaultCart - 1);
   };
 
-  // const defaultPriceHandler = () => {
-
-  // };
   const ExpressCheckout = [
     "src/assets/Mastercard-logo.svg.png",
     "src/assets/Verve_Image.png",
@@ -68,13 +84,21 @@ const CheckOut = () => {
   useEffect(() => {
     const calculatedPrice = Math.ceil(defaultCart * 12.99);
     setDefaultPrice(calculatedPrice);
+
+    //
+    const calculatedDeliveryPrice = Math.ceil(defaultPrice / deliveryPrice);
+    // setDeliveryPrice(calculatedDeliveryPrice);
+
+    //
+    const calculatedTotalPrice = Math.ceil(deliveryPrice + defaultPrice);
+    setTotalPrice(calculatedTotalPrice);
     setFullname(firstname + lastname);
-  }, [defaultCart, firstname, lastname]);
+  }, [defaultCart, defaultPrice, deliveryPrice, firstname, lastname]);
   return (
     <Stack overflowX={"hidden"}>
       <motion.div
-      initial={{opacity:0, y:"40vh"}}
-      animate={{opacity:1, y:0}}
+        initial={{ opacity: 0, y: "40vh" }}
+        animate={{ opacity: 1, y: 0 }}
       >
         <Flex flexDirection={{ base: "column", md: "row" }}>
           <Flex flex={1} bg={"none"} justify={"center"}>
@@ -82,7 +106,7 @@ const CheckOut = () => {
               <Text textAlign={"center"} fontSize={"4xl"} color={"white"}>
                 Cart Items
               </Text>
-              <Card>
+              <Card height={"100vh"} scrollBehavior={"none"}>
                 <CardHeader>
                   <Text
                     _hover={{ color: "orange.200", transition: "0.5s" }}
@@ -99,7 +123,18 @@ const CheckOut = () => {
                   >
                     Item
                   </Text>
-                  <Text mb={6} fontSize={"3xl"} color={"whatsapp.200"}>
+                  <Text mb={6} fontSize={"2xl"} color={"whatsapp.200"}>
+                    Item
+                    <Text
+                      as={"span"}
+                      color={"orange.200"}
+                      ml={"340px"}
+                      fontWeight={"bold"}
+                    >
+                      Price
+                    </Text>
+                  </Text>
+                  <Text mb={6} fontSize={"2xl"} color={"whatsapp.200"}>
                     <Text as={"span"}>{defaultCart} </Text>
                     Spaghetti Carbonara
                     <Text
@@ -171,6 +206,20 @@ const CheckOut = () => {
                       {phone}
                     </Text>
                     <br />
+                    <hr style={{ marginTop: "20px", color: "green" }} />
+                    <Text mt={4}>
+                      <Text>Item: ${defaultPrice}</Text>
+                      <Text>Delivery: {deliveryPrice}</Text>
+                    </Text>
+                    <Text
+                      mt={4}
+                      color={"whatsapp.200"}
+                      fontSize={"2xl"}
+                      textAlign={"end"}
+                      fontWeight={"bold"}
+                    >
+                      Total: {totalPrice}
+                    </Text>
                   </Text>
                 </CardHeader>
               </Card>
@@ -281,6 +330,30 @@ const CheckOut = () => {
                         width={"50%"}
                       />
                     </Flex>
+                    <Input
+                      mt={4}
+                      type="number"
+                      variant={"filled"}
+                      placeholder="Card Number"
+                      onChange={CardNumberhandler}
+                    />
+                    <Flex mt={4} gap={"4"} flexDirection={"row"}>
+                      <Input
+                        type="date"
+                        variant={"filled"}
+                        placeholder={"Valid"}
+                        width={"50%"}
+                        onChange={ValideYearHandler}
+                      />
+                      <Input
+                        type="text"
+                        variant={"filled"}
+                        placeholder="CVV"
+                        width={"50%"}
+                        onChange={CVVHandler}
+                      />
+                    </Flex>
+
                     <Button
                       width={"100%"}
                       mt={10}
@@ -289,6 +362,11 @@ const CheckOut = () => {
                       bg={"whatsapp.200"}
                       type="submit"
                       color={"white"}
+                      isDisabled={
+                        !/^\d+$/.test(cardNumber) ||
+                        !/^\d+$/.test(cvv) ||
+                        !/^\d+$/.test(valideYear)
+                      }
                     >
                       Proceed Payment
                     </Button>

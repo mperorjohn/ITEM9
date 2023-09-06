@@ -1,6 +1,6 @@
 // import "./App.css";
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import { Text, Stack } from "@chakra-ui/react";
@@ -11,6 +11,7 @@ import CheckOut from "./pages/CheckOut";
 
 const App = () => {
   return (
+    <Router>
       <Stack
         bgImage={"url('src/assets/bgOriginal.png')"}
         height={"100vh"}
@@ -18,7 +19,6 @@ const App = () => {
         bgSize={"cover"}
         position={"relative"}
         borderBottom="2px solid transparent"
-        // fontFamily={"'Montserrat', sans-serif"}
       >
         <NavBar />
 
@@ -30,6 +30,7 @@ const App = () => {
           <Route path="checkout" element={<CheckOut />} />
         </Routes>
       </Stack>
+    </Router>
   );
 };
 

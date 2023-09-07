@@ -15,8 +15,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import foodData from ".././../data/food-data.json";
+import { useState,  } from "react";
 
 const Home = () => {
+
+
+  const [selecetedFoodData, setSelectedFoodData] = React.useSatae()
+
+
+  const HandleSelect = ()=>{
+    setSe
+  }
+
+
   return (
     <Stack
       color={"white"}

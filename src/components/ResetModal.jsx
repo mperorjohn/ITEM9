@@ -14,7 +14,8 @@ import {
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 
-const ResetModal = () => {
+const ResetModal = (props) => {
+  const {onOpen} = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialRef = React.useRef(null);

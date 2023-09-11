@@ -8,6 +8,7 @@ import RegisterPage from "./pages/RegisterPage";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
 import CheckOut from "./pages/CheckOut";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="resetpassword" element={<ResetPassword />} />
           <Route path="checkout" element={<CheckOut />} />
         </Routes>
+        <Footer />
       </Stack>
     </Router>
   );

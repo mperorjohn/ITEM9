@@ -1,142 +1,98 @@
 import React from "react";
 import {
-  Heading,
   Stack,
   Button,
   Modal,
   ModalOverlay,
   ModalContent,
+  ModalBody,
   ModalHeader,
   ModalCloseButton,
-  ModalBody,
-  Box,
-  Input,
   FormControl,
   FormLabel,
-  // ModalFooter,
+  Input,
+  ModalFooter,
+  Container,
+  Card,
+  CardFooter,
+  CardBody,
+  CardHeader,
+  Text,
+  OrderedList,
+  ListItem,
 } from "@chakra-ui/react";
-
 import { useDisclosure } from "@chakra-ui/react";
 
-const ResetPassword = () => {
-  // const { onOpen } = props;
+// import { useDisclosure } from "@chakra-ui/react";
 
+const ResetPassword = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
+
   return (
     <>
-      <Button onOpen={onOpen}>Open</Button>
-      <Modal
-        // initialFocusRef={initialRef}
-        // finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
-        isCentered="true"
-        size={{ base: "sm", md: "md" }}
-      >
-        <ModalOverlay />
-        <ModalContent bg={"whatsapp.200"}>
-          <ModalHeader>
-            <Heading color={"white"}>Reset Password</Heading>
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <Stack>
+      <Container justifyContent={"center"} alignItems={"center"}>
+        <Card bg={"whatsapp.200"}>
+          <CardHeader>
+            <Text fontSize={'4xl'} fontWeight={'bold'} color={'white'}>Reset Password</Text>
+          </CardHeader>
+          <CardBody>
+            <Text fontWeight={"bold"}>⚠ Dear User,</Text>
+            <Text mt={4} fontWeight={"bold"}>
+              Before you proceed to reset your password, please take note of the
+              following:
+            </Text>
+            <Text mt={4}>
+              <OrderedList>
+                <ListItem>
+                  Resetting your password will clear your shopping cart.
+                </ListItem>
+                <ListItem>
+                  Any cookies stored in your browser will be deleted.
+                </ListItem>
+              </OrderedList>
+            </Text>
+          </CardBody>
+          <CardFooter>
+            <Button onClick={onOpen}>Reset</Button>
+            <Button ml={4} ref={finalRef}>
+              Sign In
+            </Button>
+          </CardFooter>
+        </Card>
+        <Modal
+          initialFocusRef={initialRef}
+          finalFocusRef={finalRef}
+          isOpen={isOpen}
+          onClose={onClose}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Create your account</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
               <FormControl>
-                <FormLabel color={"white"}>Email</FormLabel>
-                <Input
-                  // ref={initialRef}
-                  type="email"
-                  placeholder="Enter your email"
-                />
-
-                <FormLabel>New Password</FormLabel>
-                <Button
-                  bg={"white"}
-                  type="submit"
-                  color={"whatsapp.200"}
-                  mr={3}
-                  _focus={{ outline: "none", border: "none" }}
-                >
-                  Reset
-                </Button>
-                <Button
-                  bg={"white"}
-                  color={"whatsapp.200"}
-                  _focus={{ outline: "none", border: "none" }}
-                  onClick={onClose}
-                >
-                  Cancel
-                  <Modal
-                    initialFocusRef={initialRef}
-                    finalFocusRef={finalRef}
-                    isOpen={isOpen}
-                    onClose={onClose}
-                    isCentered="true"
-                    size={{ base: "sm", md: "md" }}
-                  >
-                    <ModalOverlay />
-                    <ModalContent bg={"whatsapp.200"}>
-                      <ModalHeader>
-                        <Heading color={"white"}>Reset Password</Heading>
-                      </ModalHeader>
-                      <ModalCloseButton />
-                      <ModalBody pb={6}>
-                        <Stack spacing={4} gap={4}>
-                          <FormControl>
-                            <FormLabel color={"white"}>Email</FormLabel>
-                            <Input
-                              // ref={initialRef}
-                              type="email"
-                              placeholder="Enter your email"
-                            />
-
-                            <FormLabel color={"white"}>New Password</FormLabel>
-                            <Input
-                              // ref={initialRef}
-                              type="password"
-                              placeholder="Create password"
-                            />
-                            <FormLabel color={"white"}>
-                              Confirm Password
-                            </FormLabel>
-                            <Input
-                              // ref={initialRef}
-                              type="password"
-                              placeholder="Create password"
-                            />
-                            <Box mt={10}>
-                              <Button
-                                bg={"white"}
-                                type="submit"
-                                color={"whatsapp.200"}
-                                mr={3}
-                                _focus={{ outline: "none", border: "none" }}
-                              >
-                                Reset Password
-                              </Button>
-                              <Button
-                                bg={"white"}
-                                color={"whatsapp.200"}
-                                _focus={{ outline: "none", border: "none" }}
-                                onClick={onClose}
-                              >
-                                Cancel
-                              </Button>
-                            </Box>
-                          </FormControl>
-                        </Stack>
-                      </ModalBody>
-                    </ModalContent>
-                  </Modal>
-                </Button>
+                <FormLabel>First name</FormLabel>
+                <Input ref={initialRef} placeholder="First name" />
               </FormControl>
-            </Stack>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+
+              <FormControl mt={4}>
+                <FormLabel>Last name</FormLabel>
+                <Input placeholder="Last name" />
+              </FormControl>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3}>
+                Save
+              </Button>
+              <Button onClick={onClose}>Cancel</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Container>
     </>
   );
 };

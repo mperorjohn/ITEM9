@@ -58,7 +58,6 @@ const Login = () => {
   };
   return (
     <Stack justify={"center"} overflowX={"hidden"}>
-      {isModalOpen ? ResetPassword : null}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
         <Text
           fontSize={"7xl"}
@@ -151,20 +150,9 @@ const Login = () => {
                 </Button>
 
                 <Text color={"white"} textAlign={"center"} mt={2}>
-                  <Button
-                    bg={"transparent"}
-                    color={"white"}
-                    onClick={handleClickModal}
-                    _hover={{
-                      bg: "transparent",
-                      outline: "none",
-                      border: "none",
-                    }}
-                    _focus={{ outline: "none", border: "none" }}
-                  >
+                  <Link to={'/resetpassword'}>
                     Reset Password
-                  </Button>
-                  {/* </Link> */}
+                  </Link>
                   <Text as={"span"} _hover={{ color: "whatsapp.200" }}>
                     <Link to={"/register"}>Sign Up</Link>
                   </Text>

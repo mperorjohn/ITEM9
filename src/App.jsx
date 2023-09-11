@@ -6,9 +6,9 @@ import NavBar from "./components/NavBar";
 import { Text, Stack } from "@chakra-ui/react";
 import RegisterPage from "./pages/RegisterPage";
 import Login from "./pages/Login";
-import ResetPassword from "./pages/ResetPassword";
 import CheckOut from "./pages/CheckOut";
 import Footer from "./components/Footer";
+import ResetPassword from "./pages/ResetPassword";
 
 const App = () => {
   return (

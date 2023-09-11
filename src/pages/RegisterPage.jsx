@@ -47,7 +47,7 @@ const RegisterPage = () => {
         <Text
           fontSize={{ base: "4xl", md: "7xl" }}
           fontWeight={"bold"}
-          mt={4}
+          mt={12}
           color={"white"}
           textAlign={"center"}
         >

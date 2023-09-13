@@ -20,8 +20,10 @@ import {
   Text,
   OrderedList,
   ListItem,
+  Heading,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 // import { useDisclosure } from "@chakra-ui/react";
 
@@ -36,10 +38,14 @@ const ResetPassword = () => {
       <Container justifyContent={"center"} alignItems={"center"}>
         <Card bg={"whatsapp.200"}>
           <CardHeader>
-            <Text fontSize={'4xl'} fontWeight={'bold'} color={'white'}>Reset Password</Text>
+            <Text fontSize={"4xl"} fontWeight={"bold"} color={"white"}>
+              Reset Password
+            </Text>
           </CardHeader>
           <CardBody>
-            <Text fontWeight={"bold"}>⚠ Dear User,</Text>
+            <Text fontWeight={"bold"} color={"red.300"}>
+              ⚠ Dear User,
+            </Text>
             <Text mt={4} fontWeight={"bold"}>
               Before you proceed to reset your password, please take note of the
               following:
@@ -56,9 +62,26 @@ const ResetPassword = () => {
             </Text>
           </CardBody>
           <CardFooter>
-            <Button onClick={onOpen}>Reset</Button>
-            <Button ml={4} ref={finalRef}>
-              Sign In
+            <Button
+              onClick={onOpen}
+              outline={"none"}
+              border={"none"}
+              _hover={{ border: "none", outline: "none" }}
+              color={"whatsapp.200"}
+              bg={"white"}
+            >
+              Reset
+            </Button>
+            <Button
+              ml={4}
+              outline={"none"}
+              border={"none"}
+              _hover={{ border: "none", outline: "none" }}
+              color={"whatsapp.200"}
+              bg={"white"}
+              ref={finalRef}
+            >
+              <Link to={"/login"}>Sign In</Link>
             </Button>
           </CardFooter>
         </Card>
@@ -67,10 +90,15 @@ const ResetPassword = () => {
           finalFocusRef={finalRef}
           isOpen={isOpen}
           onClose={onClose}
+          size={"xl"}
         >
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Create your account</ModalHeader>
+            <ModalHeader>
+              <Heading textAlign={"center"} color={"whatsapp.200"}>
+                Reset Password
+              </Heading>
+            </ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
               <FormControl>
@@ -85,10 +113,27 @@ const ResetPassword = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="blue" mr={3}>
-                Save
+              <Button
+                // colorScheme="blue"
+                mr={3}
+                outline={"none"}
+                border={"none"}
+                _hover={{ border: "none", outline: "none" }}
+                color={"white"}
+                bg={"whatsapp.200"}
+              >
+                Reset
               </Button>
-              <Button onClick={onClose}>Cancel</Button>
+              <Button
+                onClick={onClose}
+                outline={"none"}
+                border={"none"}
+                _hover={{ border: "none", outline: "none" }}
+                color={"white"}
+                bg={"whatsapp.200"}
+              >
+                Cancel
+              </Button>
             </ModalFooter>
           </ModalContent>
         </Modal>

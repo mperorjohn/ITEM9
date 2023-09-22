@@ -11,18 +11,15 @@ import {
   ButtonGroup,
   Button,
 } from "@chakra-ui/react";
-import React from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import foodData from ".././../data/food-data.json";
-import { useState } from "react";
+// import { Cart } from "../CartContext";
+import CartContext from "../CartContext";
 
-const Home = () => {
-  // const [selecetedFoodData, setSelectedFoodData] = React.useSatae()
-
-  // const HandleSelect = ()=>{
-  //   setSelectedFoodData()
-  // }
+const Home = ({ FoodName, FoodPrice, FoodImage }) => {
+  const { addToCart } = useContext(CartContext);
 
   return (
     <Stack
@@ -82,19 +79,28 @@ const Home = () => {
                 <Divider color={"whatsapp.200"} size={4} />
                 <CardFooter>
                   <ButtonGroup spacing="2">
-                    <Link to={"checkout"}>
-                      <Button
-                        variant="solid"
-                        color={"white"}
-                        bg={"whatsapp.200"}
-                        _hover={{ bg: "whatsapp" }}
-                        outline={"none"}
-                        outlineColor={"none"}
-                      >
-                        Buy now
-                      </Button>
-                    </Link>
-                    <Button variant="ghost" color={"whatsapp.200"}>
+                    <Button
+                      variant="solid"
+                      color={"white"}
+                      bg={"whatsapp.200"}
+                      _hover={{ bg: "whatsapp" }}
+                      outline={"none"}
+                      outlineColor={"none"}
+                    >
+                      Buy now
+                    </Button>
+
+                    <Button
+                      variant="ghost"
+                      color={"whatsapp.200"}
+                      onClick={() =>
+                        addToCart(
+                          foodItems.FoodName,
+                          foodItems.FoodPrice,
+                          foodItems.FoodImage
+                        )
+                      }
+                    >
                       Add to cart
                     </Button>
                   </ButtonGroup>

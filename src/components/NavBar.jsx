@@ -3,6 +3,7 @@ import {
   Card,
   Flex,
   Heading,
+  IconButton,
   Spacer,
   Stack,
   Text,
@@ -10,9 +11,13 @@ import {
 // import React from "react";
 import { ListItem, UnorderedList } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+// import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { useDisclosure } from "@chakra-ui/react";
 // import { PiBowlFood } from "react-icons/pi";
 
 const NavBar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Stack
       borderBottom={"blur"}
@@ -34,6 +39,12 @@ const NavBar = () => {
           </Heading>
         </Box>
         <Spacer />
+        <Box display={{ base: "block", md: "none" }}>
+          <IconButton
+            // icon={isOpen ? <CloseICon /> : <HambugerIcon />}
+            onClick={isOpen ? onClose : onOpen}
+          />
+        </Box>
         <Box mt={4} mr={20}>
           <UnorderedList display={"flex"} gap={4} flexDirection={"row"}>
             <Link to={"/"}>

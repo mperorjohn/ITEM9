@@ -91,9 +91,10 @@ const ResetPassword = () => {
           isOpen={isOpen}
           onClose={onClose}
           size={"xl"}
+          
         >
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent >
             <ModalHeader>
               <Heading textAlign={"center"} color={"whatsapp.200"}>
                 Reset Password
@@ -102,13 +103,21 @@ const ResetPassword = () => {
             <ModalCloseButton />
             <ModalBody pb={6}>
               <FormControl>
-                <FormLabel>First name</FormLabel>
-                <Input ref={initialRef} placeholder="First name" />
+                <FormLabel>Email Address</FormLabel>
+                <Input
+                  ref={initialRef}
+                  type={"email"}
+                  placeholder="First name"
+                />
               </FormControl>
 
               <FormControl mt={4}>
-                <FormLabel>Last name</FormLabel>
-                <Input placeholder="Last name" />
+                <FormLabel>New Password</FormLabel>
+                <Input placeholder="New Password" type="password" />
+              </FormControl>
+              <FormControl mt={4}>
+                <FormLabel>Confirm Password</FormLabel>
+                <Input type="password" placeholder="Confirm Password" />
               </FormControl>
             </ModalBody>
 

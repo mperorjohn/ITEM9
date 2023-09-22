@@ -1,4 +1,5 @@
 import {
+  Badge,
   Box,
   Card,
   Flex,
@@ -13,9 +14,12 @@ import { ListItem, UnorderedList } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 // import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useDisclosure } from "@chakra-ui/react";
-// import { PiBowlFood } from "react-icons/pi";
+import { FaShoppingCart } from "react-icons/fa";
+import { useContext } from "react";
+import CartContext from "../CartContext";
 
 const NavBar = () => {
+  const { items } = useContext(CartContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -47,6 +51,24 @@ const NavBar = () => {
         </Box>
         <Box mt={4} mr={20}>
           <UnorderedList display={"flex"} gap={4} flexDirection={"row"}>
+            <Link to={"cartpage"}>
+              <ListItem
+                listStyleType={"none"}
+                p={2}
+                color={"white"}
+                display={"flex"}
+              >
+                <FaShoppingCart size={"24"} />
+                <Badge
+                  borderRadius={"md"}
+                  variant={"solid"}
+                  colorScheme={items.length < 1 ? "red" : "whatsapp"}
+                  ml={1}
+                >
+                  {items.length < 1 ? "empty" : items.length}
+                </Badge>
+              </ListItem>
+            </Link>
             <Link to={"/"}>
               <ListItem listStyleType={"none"} p={2} color={"white"}>
                 Home

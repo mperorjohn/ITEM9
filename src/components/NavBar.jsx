@@ -51,7 +51,7 @@ const NavBar = () => {
         </Box>
         <Box mt={4} mr={20}>
           <UnorderedList display={"flex"} gap={4} flexDirection={"row"}>
-            <Link to={"cartpage"}>
+            <Link to={"cart"}>
               <ListItem
                 listStyleType={"none"}
                 p={2}
@@ -59,7 +59,7 @@ const NavBar = () => {
                 display={"flex"}
               >
                 <FaShoppingCart size={"24"} />
-                <Badge
+                <Badge 
                   borderRadius={"md"}
                   variant={"solid"}
                   colorScheme={items.length < 1 ? "red" : "whatsapp"}

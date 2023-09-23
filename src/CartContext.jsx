@@ -10,10 +10,18 @@ export const CartProvider = ({ children }) => {
     setItems((items) => [...items, { FoodName, FoodPrice, FoodImage }]);
     console.log(FoodName, FoodPrice, FoodImage);
   };
+  const removeFromCart = (index) => {
+    setItems((items) => {
+      // Create a copy of the items array without the item at the specified index
+      const updatedItems = [...items];
+      updatedItems.splice(index, 1);
+      return updatedItems;
+    });
+  };
 
   return (
     <React.Fragment>
-      <CartContext.Provider value={{ items, addToCart }}>
+      <CartContext.Provider value={{ items, addToCart,removeFromCart }}>
         {children}
       </CartContext.Provider>
     </React.Fragment>

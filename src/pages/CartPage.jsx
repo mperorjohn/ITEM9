@@ -19,7 +19,7 @@ const CartPage = () => {
   const { items, removeFromCart } = useContext(CartContext);
 
   return (
-    <Stack>
+    <Stack overflowX={'hidden'}>
       <Heading
         textAlign={"center"}
         size={"xl"}
@@ -33,12 +33,10 @@ const CartPage = () => {
         position={"relative"}
         justifyContent={{ base: "center" }}
         alignItems={{ base: "center" }}
-        overflowX={"hidden"}
         p={20}
       >
         {items.map((item, index) => (
           <Card
-          overflowX={'hidden'}
             key={index}
             _hover={{
               bg: "orange.300",

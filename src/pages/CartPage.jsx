@@ -23,12 +23,12 @@ import {
 } from "@chakra-ui/react";
 
 const CartPage = () => {
-  const { items, removeFromCart } = useContext(CartContext);
+  const { items, removeFromCart, totalPrice } = useContext(CartContext);
 
   const Header = ["Serial", "Name", "Image", "Price", "Remove"];
 
   return (
-    <Stack overflowX={'hidden'}>
+    <Stack overflowX={"hidden"}>
       <Heading
         textAlign={"center"}
         size={"xl"}
@@ -64,6 +64,7 @@ const CartPage = () => {
                     objectFit={"cover"}
                     boxSize={"60px"}
                     src={item.FoodImage}
+                    borderRadius={"xl"}
                   />
                 </Td>
                 <Td>${item.FoodPrice}</Td>
@@ -72,7 +73,33 @@ const CartPage = () => {
                 </Td>
               </Tr>
             ))}
+            {!items.length < 1 && (
+              <Tr>
+                <Td
+                  colSpan={"5"}
+                  fontSize={"xl"}
+                  fontWeight={"bold"}
+                  textAlign={"center"}
+                >
+                  Total: ${totalPrice}
+                </Td>
+              </Tr>
+            )}
           </Table>
+          {!items.length < 1 && (
+            <Box p={8}>
+              <Button
+                bg={"whatsapp.200"}
+                color={"white"}
+                _hover={{ bg: "whatsapp.100", color: "white", outline: "none" }}
+                _focus={{ outline: "none" }}
+                mt={8}
+                width={"100%"}
+              >
+                Checkout
+              </Button>
+            </Box>
+          )}
         </Card>
       </Flex>
     </Stack>

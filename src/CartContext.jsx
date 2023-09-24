@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createContext } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [items, setItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    const newTotal = items.reduce((acc, items) => acc + items.FoodPrice, 0);
+    setTotalPrice(newTotal);
+  }),
+    [items];
 
   const addToCart = (FoodName, FoodPrice, FoodImage) => {
-    setItems((items) => [...items, { FoodName, FoodPrice, FoodImage }]);
+    setItems((prvState) => [...prvState, { FoodName, FoodPrice, FoodImage }]);
     console.log(FoodName, FoodPrice, FoodImage);
   };
   const removeFromCart = (index) => {
@@ -21,7 +28,9 @@ export const CartProvider = ({ children }) => {
 
   return (
     <React.Fragment>
-      <CartContext.Provider value={{ items, addToCart,removeFromCart }}>
+      <CartContext.Provider
+        value={{ items, addToCart, removeFromCart, totalPrice }}
+      >
         {children}
       </CartContext.Provider>
     </React.Fragment>

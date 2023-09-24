@@ -13,10 +13,19 @@ import {
   Button,
   Image,
   Text,
+  Box,
+  Container,
+  Table,
+  Tr,
+  Th,
+  Td,
+  Flex,
 } from "@chakra-ui/react";
 
 const CartPage = () => {
   const { items, removeFromCart } = useContext(CartContext);
+
+  const Header = ["Serial", "Name", "Image", "Price", "Remove"];
 
   return (
     <Stack overflowX={'hidden'}>
@@ -27,60 +36,45 @@ const CartPage = () => {
       >
         {items < 1 ? "Your Cart is empty" : "Your cart "}
       </Heading>
-      <SimpleGrid
-        gap={8}
-        templateColumns={"repeat(auto-fill, minmax(250px, 8fr))"}
-        position={"relative"}
-        justifyContent={{ base: "center" }}
-        alignItems={{ base: "center" }}
-        p={20}
-      >
-        {items.map((item, index) => (
-          <Card
-            key={index}
-            _hover={{
-              bg: "orange.300",
-              color: "white !important",
-              transition: "0.5s",
-            }}
-          >
-            <CardBody>
-              <Image
-                src={item.FoodImage}
-                borderRadius={"lg"}
-                boxSize="50px"
-                objectFit="cover"
-              />
-            </CardBody>
-            <Stack mt={2}>
-              <Heading as={"h2"} fontSize={"2xl"} size={"sm"} ml={4}>
-                {item.FoodName}
-              </Heading>
+      <Flex justifyContent={"center"} justifyItems={"center"}>
+        <Card justify={"center"}>
+          <Table>
+            {!items.length < 1 && (
+              <Tr>
+                {Header.map((data, index) => (
+                  <Th
+                    key={index}
+                    bg={"whatsapp.200"}
+                    color={"white"}
+                    borderRadius={""}
+                    fontSize={"sm"}
+                  >
+                    {data}
+                  </Th>
+                ))}
+              </Tr>
+            )}
 
-              <Text
-                ml={4}
-                fontWeight={"bold"}
-                fontSize={"2xl"}
-                color={"whatsapp.200"}
-              >
-                ${item.FoodPrice}
-              </Text>
-            </Stack>
-            <Divider color={"whatsapp.200"} size={4} />
-            <CardFooter>
-              <ButtonGroup spacing="2">
-                <Button
-                  variant="ghost"
-                  color={"whatsapp.200"}
-                  onClick={removeFromCart}
-                >
-                  Remove
-                </Button>
-              </ButtonGroup>
-            </CardFooter>
-          </Card>
-        ))}
-      </SimpleGrid>
+            {items.map((item, index) => (
+              <Tr key={index}>
+                <Td>{index + 1}</Td>
+                <Td>{item.FoodName}</Td>
+                <Td>
+                  <Image
+                    objectFit={"cover"}
+                    boxSize={"60px"}
+                    src={item.FoodImage}
+                  />
+                </Td>
+                <Td>${item.FoodPrice}</Td>
+                <Td>
+                  <Button onClick={removeFromCart}>Remove</Button>
+                </Td>
+              </Tr>
+            ))}
+          </Table>
+        </Card>
+      </Flex>
     </Stack>
   );
 };

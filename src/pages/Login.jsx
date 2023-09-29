@@ -53,9 +53,7 @@ const Login = () => {
     setShow(!show);
   };
 
-  // const handleClickModal = () => {
-  //   setIsModalOpen(!isModalOpen);
-  // };
+  
   return (
     <Stack justify={"center"} overflowX={"hidden"}>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>

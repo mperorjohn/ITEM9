@@ -19,8 +19,12 @@ import { Form, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import React from "react";
+import CartContext from "../CartContext";
+import { useContext } from "react";
 
 const CheckOut = () => {
+  const { items, totalPrice } = useContext(CartContext);
+
   const [defaultCart, setDefaultCart] = useState(1);
   const [defaultPrice, setDefaultPrice] = useState(12.99);
 
@@ -34,8 +38,6 @@ const CheckOut = () => {
   const [cardNumber, setCardNumber] = React.useState();
   const [valideYear, setValideYear] = React.useState();
   const [cvv, setCvv] = React.useState();
-  const [deliveryPrice, setDeliveryPrice] = React.useState(0.3);
-  const [totalPrice, setTotalPrice] = React.useState();
 
   // Getting forms value
 
@@ -66,34 +68,12 @@ const CheckOut = () => {
     setCvv(e.target.value);
   };
 
-  // Functions to handle buttons
-  const CartHandlerPlus = () => {
-    setDefaultCart(defaultCart + 1) + 1;
-  };
-
-  const CartHandlerMinus = () => {
-    setDefaultCart(defaultCart - 1);
-  };
-
   const ExpressCheckout = [
     "src/assets/Mastercard-logo.svg.png",
     "src/assets/Verve_Image.png",
     "src/assets/Visa-investment-in-Africa.png",
   ];
 
-  useEffect(() => {
-    const calculatedPrice = Math.ceil(defaultCart * 12.99);
-    setDefaultPrice(calculatedPrice);
-
-    //
-    const calculatedDeliveryPrice = Math.ceil(defaultPrice / deliveryPrice);
-    // setDeliveryPrice(calculatedDeliveryPrice);
-
-    //
-    const calculatedTotalPrice = Math.ceil(deliveryPrice + defaultPrice);
-    setTotalPrice(calculatedTotalPrice);
-    setFullname(firstname + lastname);
-  }, [defaultCart, defaultPrice, deliveryPrice, firstname, lastname]);
   return (
     <Stack overflowX={"hidden"}>
       <motion.div
@@ -109,62 +89,31 @@ const CheckOut = () => {
               <Card height={"100vh"} scrollBehavior={"none"}>
                 <CardHeader>
                   <Text
-                    _hover={{ color: "orange.200", transition: "0.5s" }}
-                    color={"whatsapp.200"}
-                    fontWeight={"medium"}
-                  >
-                    Modify Cart
-                  </Text>
-                  <Text
                     textAlign={"center"}
                     fontSize={"4xl"}
                     bg={"whatsapp.200"}
                     color={"white"}
                   >
-                    Item
+                    Total Price
                   </Text>
-                  <Text mb={6} fontSize={"2xl"} color={"whatsapp.200"}>
-                    Item
-                    <Text
-                      as={"span"}
-                      color={"orange.200"}
-                      ml={"340px"}
-                      fontWeight={"bold"}
-                    >
-                      Price
+                  {!items.length < 1 && (
+                    <Text mb={6} fontSize={"2xl"} color={"whatsapp.200"}>
+                      ${totalPrice}
                     </Text>
-                  </Text>
-                  <Text mb={6} fontSize={"2xl"} color={"whatsapp.200"}>
-                    <Text as={"span"}>{defaultCart} </Text>
-                    Spaghetti Carbonara
-                    <Text
-                      as={"span"}
-                      color={"orange.200"}
-                      ml={"170px"}
-                      fontWeight={"bold"}
-                    >
-                      ${defaultPrice}
-                    </Text>
-                  </Text>
+                  )}
+
                   <hr color="green" />
                   <Flex gap={10}>
-                    <Button
-                      mt={6}
-                      bg={"whatsapp.200"}
-                      color={"white"}
-                      _focus={{ outline: "none", border: "none" }}
-                      onClick={CartHandlerPlus}
-                    >
-                      Add
-                    </Button>{" "}
-                    <Button
-                      mt={6}
-                      onClick={CartHandlerMinus}
-                      isDisabled={defaultCart === 1}
-                      _focus={{ outline: "none", border: "none" }}
-                    >
-                      Remove
-                    </Button>
+                    <Link to={"/cart"}>
+                      <Button
+                        mt={6}
+                        bg={"whatsapp.200"}
+                        color={"white"}
+                        _focus={{ outline: "none", border: "none" }}
+                      >
+                        Modify cart
+                      </Button>
+                    </Link>
                   </Flex>
                   <Text textAlign={"center"} fontSize={"3xl"}>
                     Delivery Details
@@ -209,7 +158,7 @@ const CheckOut = () => {
                     <hr style={{ marginTop: "20px", color: "green" }} />
                     <Text mt={4}>
                       <Text>Item: ${defaultPrice}</Text>
-                      <Text>Delivery: {deliveryPrice}</Text>
+                      <Text>Delivery: {}</Text>
                     </Text>
                     <Text
                       mt={4}

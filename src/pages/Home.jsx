@@ -10,15 +10,15 @@ import {
   CardFooter,
   ButtonGroup,
   Button,
+  LinkOverlay,
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { motion } from "framer-motion";
-// import { Link } from "react-router-dom";
 import foodData from ".././../data/food-data.json";
-// import { Cart } from "../CartContext";
 import CartContext from "../CartContext";
+import { Link } from "react-router-dom";
 
-const Home = ({ FoodName, FoodPrice, FoodImage }) => {
+const Home = () => {
   const { addToCart } = useContext(CartContext);
 
   return (
@@ -79,16 +79,25 @@ const Home = ({ FoodName, FoodPrice, FoodImage }) => {
                 <Divider color={"whatsapp.200"} size={4} />
                 <CardFooter>
                   <ButtonGroup spacing="2">
-                    <Button
-                      variant="solid"
-                      color={"white"}
-                      bg={"whatsapp.200"}
-                      _hover={{ bg: "whatsapp" }}
-                      outline={"none"}
-                      outlineColor={"none"}
-                    >
-                      Buy now
-                    </Button>
+                    <Link to={"/checkout"}>
+                      <Button
+                        variant="solid"
+                        color={"white"}
+                        bg={"whatsapp.200"}
+                        _hover={{ bg: "whatsapp" }}
+                        outline={"none"}
+                        outlineColor={"none"}
+                        onClick={() =>
+                          addToCart(
+                            foodItems.FoodName,
+                            foodItems.FoodPrice,
+                            foodItems.FoodImage
+                          )
+                        }
+                      >
+                        Buy now
+                      </Button>
+                    </Link>
 
                     <Button
                       variant="ghost"

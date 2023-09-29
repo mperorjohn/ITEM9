@@ -53,9 +53,9 @@ const Login = () => {
     setShow(!show);
   };
 
-  const handleClickModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+  // const handleClickModal = () => {
+  //   setIsModalOpen(!isModalOpen);
+  // };
   return (
     <Stack justify={"center"} overflowX={"hidden"}>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 4 }}>
@@ -99,8 +99,6 @@ const Login = () => {
                   size={"md"}
                   _hover={{ bg: "whatsapp.300", outline: "none" }}
                   onChange={EmailHandler}
-                  // fontFamily={"'Montserrat', sans-serif"}
-                  // fontWeight={"600"}
                 />
                 <FormLabel
                   color={"white"}
@@ -150,10 +148,8 @@ const Login = () => {
                 </Button>
 
                 <Text color={"white"} textAlign={"center"} mt={2}>
-                  <Link to={'/resetpassword'}>
-                    Reset Password
-                  </Link>
-                  <Text as={"span"} _hover={{ color: "whatsapp.200" }}>
+                  <Link to={"/resetpassword"}>Reset Password</Link>
+                  <Text ml={4} as={"span"} _hover={{ color: "whatsapp.200" }}>
                     <Link to={"/register"}>Sign Up</Link>
                   </Text>
                 </Text>

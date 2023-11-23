@@ -25,7 +25,6 @@ import { useContext } from "react";
 const CheckOut = () => {
   const { items, totalPrice } = useContext(CartContext);
 
-  const [defaultCart, setDefaultCart] = useState(1);
   const [defaultPrice, setDefaultPrice] = useState(12.99);
 
   // State definitoin form
@@ -39,6 +38,8 @@ const CheckOut = () => {
   const [valideYear, setValideYear] = React.useState();
   const [cvv, setCvv] = React.useState();
 
+
+ 
   // Getting forms value
 
   const EmailHandler = (e) => {

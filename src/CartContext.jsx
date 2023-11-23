@@ -29,7 +29,6 @@ export const CartProvider = ({ children }) => {
       // Create a copy of the items array without the item at the specified index
       const updatedItems = [...items];
       updatedItems.splice(index, 1);
-      console.log(index)
       return updatedItems;
 
     });

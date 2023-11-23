@@ -34,6 +34,9 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+
+  
+
   return (
     <React.Fragment>
       <CartContext.Provider
